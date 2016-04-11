@@ -21,6 +21,9 @@ $config = [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+//        'view' => [
+//            'class' => 'app\components\Repl'
+//        ],
         'mailer' => [
             'class' => 'yii\swiftmailer\Mailer',
             // send all mails to a file by default. You have to set
@@ -38,14 +41,13 @@ $config = [
             ],
         ],
         'db' => require(__DIR__ . '/db.php'),
-        /*
+        
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
-            'rules' => [
-            ],
+            //'rules' => [],
         ],
-        */
+        
     ],
     'params' => $params,
 ];
@@ -60,6 +62,7 @@ if (YII_ENV_DEV) {
     $config['bootstrap'][] = 'gii';
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',
+        'allowedIPs' => ['192.168.56.1']
     ];
 }
 
